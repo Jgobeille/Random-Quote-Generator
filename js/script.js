@@ -14,44 +14,99 @@ project 1 - A Random Quote Generator
   Add the `year` property to at least one object in the array.
   Use console.log() to log your array of quotes to the console.
 ***/
+
+// Array of objects that will hold quote information
 let quotes = [
   {
-    quote: "asfdf",
-    source: "Bill Gates",
+    quote: "Pride is not the opposite of shame, but its source.",
+    source: "Uncle Iroh",
+    citation: "Episode 2.09 'Bitter Work'",
+    year: 1985
+
+  },
+  {
+    quote: "Sharing tea with a fascinating stranger is one of life’s true delights.",
+    source: "Uncle Iroh",
+    citation: "Episode 2.08 'The Chase'",
+    year: 1985
+
+  },
+  {
+    quote: "Sometimes life is like this tunnel. You can’t always see the light at the end of the tunnel, but if you keep moving, you will come to a better place.",
+    source: "Uncle Iroh",
+    citation: "Episode 2.19 'The Crossroads of Destiny'",
+    year: 1985
+
+  },
+  {
+    quote: "Life happens wherever you are, whether you make it or not.",
+    source: "Uncle Iroh",
+    citation: "Episode 2.13 'City of Walls Secrets'",
+    year: 1985
+
+  },
+  {
+    quote: "You have come to the crossroads of your destiny. It is time for you to choose. It is time for you to choose good.",
+    source: "Uncle Iroh",
+    citation: "Episode 2.20 'The Crossroads of Destiny'",
+    year: 1985
+
+  },
+  {
+    quote: "There is nothing wrong with a life of peace and prosperity. I suggest you think about what it is you want from your life, and why.",
+    source: "Uncle Iroh",
+    citation: "Episode 2.17 'Lake Laogai'",
+    year: 1985
+
+  },
+  {
+    quote: "IT IS IMPORTANT TO DRAW WISDOM FROM MANY DIFFERENT PLACES",
+    source: "Uncle Iroh",
+    citation: "Episode 2.09 'Bitter Work'",
+    year: 1985
+
+  },
+  {
+    quote: "HOPE IS SOMETHING YOU GIVE YOURSELF. THAT IS THE MEANING OF INNER STRENGTH.",
+    source: "Uncle Iroh",
     citation: "ddsfad",
     year: 1985
 
   },
   {
-    quote: "asfdf",
-    source: "Bill Gates",
+    quote: "DESTINY IS A FUNNY THING. YOU NEVER KNOW HOW THINGS ARE GOING TO WORK OUT.",
+    source: "Uncle Iroh",
     citation: "ddsfad",
     year: 1985
 
   },
   {
-    quote: "asfdf",
-    source: "Bill Gates",
+    quote: "WHILE IT IS ALWAYS BEST TO BELIEVE IN ONESELF, A LITTLE HELP FROM OTHERS CAN BE A GREAT BLESSING.",
+    source: "Uncle Iroh",
     citation: "ddsfad",
     year: 1985
 
   },
   {
-    quote: "asfdf",
-    source: "Bill Gates",
-    citation: "ddsfad",
-    year: 1985
-
-  },
-  {
-    quote: "asfdf",
-    source: "Bill Gates",
+    quote: "IT IS USUALLY BEST TO ADMIT MISTAKES WHEN THEY OCCUR, AND TO SEEK TO RESTORE HONOR.",
+    source: "Uncle Iroh",
     citation: "ddsfad",
     year: 1985
 
   },
 ]
 
+
+function getRandomQuote() {
+const max = quotes.length;
+
+let randomNumber = Math.floor(Math.random() * max - 1 + 1) + 1; 
+
+return quotes[randomNumber].quote;
+}
+
+
+console.log(getRandomQuote());
 
 
 
