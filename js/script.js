@@ -116,10 +116,13 @@ HTML.innerHTML = quoteText;
 
 }
 
+//randomly changes the color of the button each time a new quote appears
+function randomColor() {
+
+}
 
 
-
-window.setInterval(printQuote, 5000);
+window.setInterval(printQuote, 10000);
 
 printQuote();
 
