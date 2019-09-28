@@ -14,37 +14,51 @@ let quotes = [
   {
     quote: "Pride is not the opposite of shame, but its source.",
     source: "Uncle Iroh",
-    citation: "Episode 2.09 'Bitter Work'"
+    citation: "Episode 2.09",
+    year: 2009,
+    title: 'Bitter Work'
   },
   {
     quote: "Sharing tea with a fascinating stranger is one of life’s true delights.",
     source: "Uncle Iroh",
-    citation: "Episode 2.08 'The Chase'"
+    citation: "Episode 2.08 'The Chase'",
+    year: 2009,
+    title: 'Bitter Work'
   },
   {
     quote: "Sometimes life is like this tunnel. You can’t always see the light at the end of the tunnel, but if you keep moving, you will come to a better place.",
     source: "Uncle Iroh",
-    citation: "Episode 2.19 'The Crossroads of Destiny'"
+    citation: "Episode 2.19",
+    year: 2009,
+    title: 'The Crossroads of Destiny'
   },
   {
     quote: "Life happens wherever you are, whether you make it or not.",
     source: "Uncle Iroh",
-    citation: "Episode 2.13 'City of Walls Secrets'"
+    citation: "Episode 2.13",
+    title: 'City of Walls Secrets'
   },
   {
     quote: "You have come to the crossroads of your destiny. It is time for you to choose. It is time for you to choose good.",
     source: "Uncle Iroh",
-    citation: "Episode 2.20 'The Crossroads of Destiny'"
+    citation: "Episode 2.20",
+    year: 2009,
+    title: 'The Crossroads of Destiny'
   },
   {
     quote: "There is nothing wrong with a life of peace and prosperity. I suggest you think about what it is you want from your life, and why.",
     source: "Uncle Iroh",
-    citation: "Episode 2.17 'Lake Laogai'"
+    citation: "Episode 2.17",
+    year: 2009,
+    title: 'Lake Laogai'
   },
   {
     quote: "IT IS IMPORTANT TO DRAW WISDOM FROM MANY DIFFERENT PLACES",
     source: "Uncle Iroh",
-    citation: "Episode 2.09 'Bitter Work'"
+    citation: "Episode 2.09",
+    year: 2009,
+    title: 'Bitter Work'
+
   },
   {
     quote: "HOPE IS SOMETHING YOU GIVE YOURSELF. THAT IS THE MEANING OF INNER STRENGTH.",
@@ -103,6 +117,10 @@ if(randomQuote.citation) {
 if(randomQuote.year) {
   quoteText += '<span class="year">' + randomQuote.year + '</span>';
 }
+if(randomQuote.title) {
+  quoteText += '<span class="title> Episode: ' + randomQuote.title + '</span>';
+}
+
 //close paragraph tag and print to the page
 quoteText += '</p>';
 HTML.innerHTML = quoteText;
