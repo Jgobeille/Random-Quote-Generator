@@ -16,6 +16,7 @@ project 1 - A Random Quote Generator
 ***/
 
 // Array of objects that will hold quote information
+let timer = window.setInterval(printQuote, 10000);
 let quotes = [
   {
     quote: "Pride is not the opposite of shame, but its source.",
@@ -87,7 +88,7 @@ function getRandomQuote() {
 const max = quotes.length;
 
 let randomNumber = Math.floor(Math.random() * max - 1 + 1); 
-console.log(randomNumber);
+
 let quote = quotes[randomNumber];
 return quotes[randomNumber];
 }
@@ -114,17 +115,30 @@ if(randomQuote.year) {
 quoteText += '</p>';
 HTML.innerHTML = quoteText;
 
+window.clearInterval(timer);
+timer = window.setInterval(printQuote, 10000);
+randomColor(255, 1);
+
 }
 
 //randomly changes the color of the button each time a new quote appears
-function randomColor() {
-
+function randomColor(upper, lower) {
+  //set color vars to random numbers between 1 and 255)
+    let red = Math.floor(Math.random() * upper - lower + lower) + lower;
+    let blue = Math.floor(Math.random() * upper - lower + lower) + lower;
+    let green = Math.floor(Math.random() * upper - lower + lower) + lower;
+    let bgColor = `rgb(${red},${blue},${green})`;
+    document.getElementById("loadQuote").style.backgroundColor = bgColor;
 }
 
 
-window.setInterval(printQuote, 10000);
 
-printQuote();
+//timer rest if click function
+const click = document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+
+
+
 
 
 /***
@@ -143,14 +157,13 @@ printQuote();
 
 
 
+
 /***
   When the "Show another quote" button is clicked, the event listener 
   below will be triggered, and it will call, or "invoke", the `printQuote` 
   function. So do not make any changes to the line of code below this 
   comment.
 ***/
-
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
