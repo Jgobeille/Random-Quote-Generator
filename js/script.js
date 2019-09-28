@@ -21,9 +21,9 @@ let quotes = [
   {
     quote: "Sharing tea with a fascinating stranger is one of life’s true delights.",
     source: "Uncle Iroh",
-    citation: "Episode 2.08 'The Chase'",
+    citation: "Episode 2.08",
     year: 2009,
-    title: 'Bitter Work'
+    title: "The Chase"
   },
   {
     quote: "Sometimes life is like this tunnel. You can’t always see the light at the end of the tunnel, but if you keep moving, you will come to a better place.",
@@ -118,7 +118,7 @@ if(randomQuote.year) {
   quoteText += '<span class="year">' + randomQuote.year + '</span>';
 }
 if(randomQuote.title) {
-  quoteText += '<span class="title> Episode: ' + randomQuote.title + '</span>';
+  quoteText += '<span class="title">' + randomQuote.title + '</span>';
 }
 
 //close paragraph tag and print to the page
