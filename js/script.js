@@ -89,9 +89,7 @@ any object in the array with the random number
 */
 function getRandomQuote() {
 const max = quotes.length;
-
 let randomNumber = Math.floor(Math.random() * max - 1 + 1); 
-
 let quote = quotes[randomNumber];
 return quotes[randomNumber];
 }
