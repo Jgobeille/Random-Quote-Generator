@@ -9,7 +9,7 @@ project 1 - A Random Quote Generator
 
 
 // Array of objects that will hold quote information
-let timer = window.setInterval(printQuote, 10000);
+
 let quotes = [
   {
     quote: "Pride is not the opposite of shame, but its source.",
@@ -87,10 +87,13 @@ and the max number of items in the array.
 Next it will return the quotes array and access 
 any object in the array with the random number
 */
-function getRandomQuote() {
+const getRandomQuote = () => {
 const max = quotes.length;
-let randomNumber = Math.floor(Math.random() * max - 1 + 1); 
-let quote = quotes[randomNumber];
+
+const randomNumber = Math.floor(Math.random() * max - 1 + 1); 
+
+const quote = quotes[randomNumber];
+
 return quotes[randomNumber];
 }
 
@@ -98,57 +101,72 @@ return quotes[randomNumber];
 
 
 //Create function that prints the quote to the page. Good idea is to set each section of the object to a var and then append the text to the HTML already present on the page. ...Maybe
-function printQuote() {
-let randomQuote = getRandomQuote();
+const printQuote = () => {
+const randomQuote = getRandomQuote();
 let quoteText = '';
-let HTML = document.getElementById('quote-box');
-let quote = randomQuote.quote;
-let upperCase = quote.toUpperCase();
+const HTML = document.getElementById('quote-box');
+const quote = randomQuote.quote;
+const upperCase = quote.toUpperCase();
 
 //compile all text from quotes object into to quote text var
-quoteText += '<p class="quote">' + upperCase + '</p>';
-quoteText += '<p class="source">' + randomQuote.source;
+quoteText += `<p class="quote"> ${upperCase} </p>
+              <p class="source"> ${randomQuote.source} `;
+
 //check if citation and year are included
-if(randomQuote.citation) {
-  quoteText += '<span class="citation">' + randomQuote.citation + '</span>';
+  if(randomQuote.citation) {
+  quoteText += `<span class="citation"> ${randomQuote.citation} </span>`;
 } 
-if(randomQuote.year) {
-  quoteText += '<span class="year">' + randomQuote.year + '</span>';
+  if(randomQuote.title) {
+  quoteText += `<span class="title"> ${randomQuote.title} </span>`;
 }
-if(randomQuote.title) {
-  quoteText += '<span class="title">' + randomQuote.title + '</span>';
+  if(randomQuote.year) {
+  quoteText += `<span class="year"> ${randomQuote.year} </span>`;
 }
 
 //close paragraph tag and print to the page
-quoteText += '</p>';
+quoteText += `</p>`;
 HTML.innerHTML = quoteText;
 
 //clear timer interval when button is pressed and then reset the timer again
 window.clearInterval(timer);
 timer = window.setInterval(printQuote, 10000);
+
 //run randomNumber function
 randomColor(255, 1);
 
 }
 
+
+
 //randomly changes the color of the button each time a new quote appears
-function randomColor(upper, lower) {
+const randomColor = (upper, lower) => {
   //set color vars to random numbers between 1 and 255)
     lower = Math.ceil(lower);
     upper = Math.floor(upper);
-    let red = Math.floor(Math.random() * upper - lower + lower) + lower;
-    let blue = Math.floor(Math.random() * upper - lower + lower) + lower;
-    let green = Math.floor(Math.random() * upper - lower + lower) + lower;
-    let bgColor = `rgb(${red},${blue},${green})`;
-    let button = document.getElementById("loadQuote");
+    const red = Math.floor(Math.random() * upper - lower + lower) + lower;
+    const blue = Math.floor(Math.random() * upper - lower + lower) + lower;
+    const green = Math.floor(Math.random() * upper - lower + lower) + lower;
+    const bgColor = `rgb(${red},${blue},${green})`;
+    const button = document.getElementById("loadQuote");
     button.style.backgroundColor = bgColor;
 }
 
+//Set timer to change quote every ten seconds
+let timer = window.setInterval(printQuote, 10000);
 
 //when button is clicked, run printQuote function
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 
+/*
+Additions:
+Twitter share feature.
+A fade in feature for every time a new quote is generated
+Add your own quote feature
+Quote will play the audio of the actual quote
+Make the page responsive to different page sizes
+Update to ES6 spec
+*/
 
 
 
