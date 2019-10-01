@@ -164,5 +164,5 @@ A fade in feature for every time a new quote is generated
 Add your own quote feature
 Quote will play the audio of the actual quote
 Make the page responsive to different page sizes
-Update to ES6 spec
+
 */
