@@ -89,7 +89,7 @@ any object in the array with the random number
 const getRandomQuote = () => {
   const max = quotes.length;
 
-  const randomNumber = Math.floor(Math.random() * max - 1 + 1);
+  const randomNumber = Math.floor(Math.random() * max);
 
   const quote = quotes[randomNumber];
 
@@ -109,7 +109,7 @@ const printQuote = () => {
 
   //compile all text from quotes object into to quote text var
   quoteText += `<p class="quote"> ${upperCase} </p>
-              <p class="source"> ${randomQuote.source} `;
+                <p class="source"> ${randomQuote.source} `;
 
   //check if citation and year are included
   if (randomQuote.citation) {
@@ -140,13 +140,21 @@ const printQuote = () => {
 //randomly changes the color of the button each time a new quote appears
 const randomColor = (upper, lower) => {
   //set color vars to random numbers between 1 and 255)
+  const num = []
   lower = Math.ceil(lower);
   upper = Math.floor(upper);
-  const red = Math.floor(Math.random() * upper - lower + lower) + lower;
-  const blue = Math.floor(Math.random() * upper - lower + lower) + lower;
-  const green = Math.floor(Math.random() * upper - lower + lower) + lower;
+
+  for(var i = 0; i < 3; i++){
+    const random = Math.floor(Math.random() * upper - lower + lower) + lower
+    num.push(random)
+  }
+
+  const red = num[0];
+  const blue = num[1];
+  const green = num[2];
   const bgColor = `rgb(${red},${blue},${green})`;
   const button = document.getElementById("loadQuote");
+
   button.style.backgroundColor = bgColor;
 }
 
@@ -154,7 +162,9 @@ const randomColor = (upper, lower) => {
 let timer = window.setInterval(printQuote, 10000);
 
 //when button is clicked, run printQuote function
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+const quoteButton = document.getElementById('loadQuote')
+
+quoteButton.addEventListener("click", printQuote, false);
 
 
 /*
