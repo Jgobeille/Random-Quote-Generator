@@ -5,79 +5,82 @@ project 1 - A Random Quote Generator
 
 // Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
 
-
-
-
 // Array of objects that will hold quote information
 
-let quotes = [{
+let quotes = [
+  {
     quote: "Pride is not the opposite of shame, but its source.",
     source: "Uncle Iroh",
     citation: "Episode 2.09",
     year: 2009,
-    title: 'Bitter Work'
+    title: "Bitter Work"
   },
   {
-    quote: "Sharing tea with a fascinating stranger is one of life’s true delights.",
+    quote:
+      "Sharing tea with a fascinating stranger is one of life’s true delights.",
     source: "Uncle Iroh",
     citation: "Episode 2.08",
     year: 2009,
     title: "The Chase"
   },
   {
-    quote: "Sometimes life is like this tunnel. You can’t always see the light at the end of the tunnel, but if you keep moving, you will come to a better place.",
+    quote:
+      "Sometimes life is like this tunnel. You can’t always see the light at the end of the tunnel, but if you keep moving, you will come to a better place.",
     source: "Uncle Iroh",
     citation: "Episode 2.19",
     year: 2009,
-    title: 'The Crossroads of Destiny'
+    title: "The Crossroads of Destiny"
   },
   {
     quote: "Life happens wherever you are, whether you make it or not.",
     source: "Uncle Iroh",
     citation: "Episode 2.13",
-    title: 'City of Walls Secrets'
+    title: "City of Walls Secrets"
   },
   {
-    quote: "You have come to the crossroads of your destiny. It is time for you to choose. It is time for you to choose good.",
+    quote:
+      "You have come to the crossroads of your destiny. It is time for you to choose. It is time for you to choose good.",
     source: "Uncle Iroh",
     citation: "Episode 2.20",
     year: 2009,
-    title: 'The Crossroads of Destiny'
+    title: "The Crossroads of Destiny"
   },
   {
-    quote: "There is nothing wrong with a life of peace and prosperity. I suggest you think about what it is you want from your life, and why.",
+    quote:
+      "There is nothing wrong with a life of peace and prosperity. I suggest you think about what it is you want from your life, and why.",
     source: "Uncle Iroh",
     citation: "Episode 2.17",
     year: 2009,
-    title: 'Lake Laogai'
+    title: "Lake Laogai"
   },
   {
     quote: "IT IS IMPORTANT TO DRAW WISDOM FROM MANY DIFFERENT PLACES",
     source: "Uncle Iroh",
     citation: "Episode 2.09",
     year: 2009,
-    title: 'Bitter Work'
-
+    title: "Bitter Work"
   },
   {
-    quote: "HOPE IS SOMETHING YOU GIVE YOURSELF. THAT IS THE MEANING OF INNER STRENGTH.",
-    source: "Uncle Iroh",
+    quote:
+      "HOPE IS SOMETHING YOU GIVE YOURSELF. THAT IS THE MEANING OF INNER STRENGTH.",
+    source: "Uncle Iroh"
   },
   {
-    quote: "DESTINY IS A FUNNY THING. YOU NEVER KNOW HOW THINGS ARE GOING TO WORK OUT.",
-    source: "Uncle Iroh",
+    quote:
+      "DESTINY IS A FUNNY THING. YOU NEVER KNOW HOW THINGS ARE GOING TO WORK OUT.",
+    source: "Uncle Iroh"
   },
   {
-    quote: "WHILE IT IS ALWAYS BEST TO BELIEVE IN ONESELF, A LITTLE HELP FROM OTHERS CAN BE A GREAT BLESSING.",
-    source: "Uncle Iroh",
+    quote:
+      "WHILE IT IS ALWAYS BEST TO BELIEVE IN ONESELF, A LITTLE HELP FROM OTHERS CAN BE A GREAT BLESSING.",
+    source: "Uncle Iroh"
   },
   {
-    quote: "IT IS USUALLY BEST TO ADMIT MISTAKES WHEN THEY OCCUR, AND TO SEEK TO RESTORE HONOR.",
-    source: "Uncle Iroh",
-  },
-]
-
-
+    quote:
+      "IT IS USUALLY BEST TO ADMIT MISTAKES WHEN THEY OCCUR, AND TO SEEK TO RESTORE HONOR.",
+    source: "Uncle Iroh"
+  }
+];
 
 /*
 This will make a random number between one 
@@ -91,19 +94,14 @@ const getRandomQuote = () => {
 
   const randomNumber = Math.floor(Math.random() * max);
 
-  const quote = quotes[randomNumber];
-
   return quotes[randomNumber];
-}
-
-
-
+};
 
 //Create function that prints the quote to the page. Good idea is to set each section of the object to a var and then append the text to the HTML already present on the page. ...Maybe
 const printQuote = () => {
   const randomQuote = getRandomQuote();
-  let quoteText = '';
-  const HTML = document.getElementById('quote-box');
+  let quoteText = "";
+  const HTML = document.getElementById("quote-box");
   const quote = randomQuote.quote;
   const upperCase = quote.toUpperCase();
 
@@ -131,22 +129,18 @@ const printQuote = () => {
   timer = window.setInterval(printQuote, 10000);
 
   //run randomNumber function
-  randomColor(255, 1);
-
-}
-
-
+  randomColor(256, 1);
+};
 
 //randomly changes the color of the button each time a new quote appears
 const randomColor = (upper, lower) => {
   //set color vars to random numbers between 1 and 255)
-  const num = []
-  lower = Math.ceil(lower);
+  const num = [];
   upper = Math.floor(upper);
 
-  for(var i = 0; i < 3; i++){
-    const random = Math.floor(Math.random() * upper - lower + lower) + lower
-    num.push(random)
+  for (var i = 0; i < 3; i++) {
+    const random = Math.floor(Math.random() * upper - lower + lower);
+    num.push(random);
   }
 
   const red = num[0];
@@ -156,16 +150,15 @@ const randomColor = (upper, lower) => {
   const button = document.getElementById("loadQuote");
 
   button.style.backgroundColor = bgColor;
-}
+};
 
 //Set timer to change quote every ten seconds
 let timer = window.setInterval(printQuote, 10000);
 
 //when button is clicked, run printQuote function
-const quoteButton = document.getElementById('loadQuote')
+const quoteButton = document.getElementById("loadQuote");
 
 quoteButton.addEventListener("click", printQuote, false);
-
 
 /*
 Additions:
