@@ -4,6 +4,7 @@ class Quote {
   }
 }
 
+// Array of objects that will hold quote information
 const quotes = [
   new Quote({
     quote: "Pride is not the opposite of shame, but its source.",
