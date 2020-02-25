@@ -49,9 +49,7 @@ const printQuote = () => {
   quoteText += `</p>`;
   HTML.innerHTML = quoteText;
 
-  //clear timer interval when button is pressed and then reset the timer again
-  window.clearInterval(timer);
-  timer = window.setInterval(printQuote, 10000);
+  myTimer();
 
   //run randomNumber function
   randomColor(256, 1);
@@ -64,7 +62,7 @@ const randomColor = (upper, lower) => {
   upper = Math.floor(upper);
 
   for (var i = 0; i < 3; i++) {
-    const random = Math.floor(Math.random() * upper);
+    const random = Math.floor(Math.random() * upper - lower);
     num.push(random);
   }
 
@@ -78,12 +76,17 @@ const randomColor = (upper, lower) => {
 };
 
 //Set timer to change quote every ten seconds
-let timer = window.setInterval(printQuote, 10000);
+let timer = "";
 
+const myTimer = () => {
+  //clear timer interval when button is pressed and then reset the timer again
+  window.clearInterval(timer);
+  timer = window.setInterval(printQuote, 10000);
+};
 //when button is clicked, run printQuote function
-const quoteButton = document.getElementById("loadQuote");
-
-quoteButton.addEventListener("click", printQuote, false);
+document
+  .getElementById("loadQuote")
+  .addEventListener("click", printQuote, false);
 
 /*
 Additions:
