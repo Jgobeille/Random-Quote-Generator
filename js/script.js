@@ -31,18 +31,18 @@ const printQuote = () => {
   const upperCase = quote.quote.toUpperCase();
 
   //compile all text from quotes object into to quote text var
-  quoteText += `<p class="quote"> ${upperCase} </p>
-                <p class="source"> ${randomQuote.quote.source} `;
+  quoteText += `<p class="quote fade-in"> ${upperCase} </p>
+                <p class="source fade-in"> ${randomQuote.quote.source} `;
 
   //check if citation and year are included
   if (randomQuote.quote.citation) {
-    quoteText += `<span class="citation"> ${randomQuote.quote.citation} </span>`;
+    quoteText += `<span class="citation fade-in"> ${randomQuote.quote.citation} </span>`;
   }
   if (randomQuote.quote.title) {
-    quoteText += `<span class="title"> ${randomQuote.quote.title} </span>`;
+    quoteText += `<span class="title fade-in"> ${randomQuote.quote.title} </span>`;
   }
   if (randomQuote.quote.year) {
-    quoteText += `<span class="year"> ${randomQuote.quote.year} </span>`;
+    quoteText += `<span class="year fade-in"> ${randomQuote.quote.year} </span>`;
   }
 
   //close paragraph tag and print to the page
@@ -59,10 +59,9 @@ const printQuote = () => {
 const randomColor = (upper, lower) => {
   //set color vars to random numbers between 1 and 255)
   const num = [];
-  upper = Math.floor(upper);
-
   for (var i = 0; i < 3; i++) {
     const random = Math.floor(Math.random() * upper - lower);
+
     num.push(random);
   }
 
